@@ -3,7 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class director(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")
     name = models.CharField(max_length=30, null=True)
     birth_date = models.DateField(default='2000-01-01')
     nationality = models.CharField(max_length=100, default='Unknown')
