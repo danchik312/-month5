@@ -25,15 +25,22 @@ class movie(models.Model):
     def __str__(self):
         return self.title
 
+STAR_CHOICES = (
+    (1, '⭐'),
+    (2, '⭐⭐'),
+    (3, '⭐⭐⭐'),
+    (4, '⭐⭐⭐⭐'),
+    (5, '⭐⭐⭐⭐⭐'),
+)
 class review(models.Model):
     name = models.CharField(max_length=30, null=True)
     text = models.CharField(max_length=150 , null=False)
     movie = models.ForeignKey(movie, on_delete=models.CASCADE)
-    grade = models.PositiveIntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)], null=True
-    )
+    stars = models.IntegerField(choices=STAR_CHOICES , default=1)
     email = models.EmailField(default="@gmail.com", null=True)
 
 
     def __str__(self):
         return self.name
+
+

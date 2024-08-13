@@ -15,3 +15,4 @@ class ReviewSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.review
         fields = '__all__'
+
