@@ -10,7 +10,7 @@ class director(models.Model):
     email = models.EmailField(default="@gmail.com", null=True)
 
     def __str__(self):
-        return self.name
+        return self.name if self.name else "Unnamed Director"
 
 class movie(models.Model):
     title=models.CharField(max_length=200 ,null=True )
@@ -23,7 +23,7 @@ class movie(models.Model):
     photo = models.ImageField(upload_to="images/", null=True, blank=True)
 
     def __str__(self):
-        return self.title
+        return self.title if self.title else "Untitled Movie"
 
 STAR_CHOICES = (
     (1, '⭐'),
@@ -41,6 +41,6 @@ class review(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.name if self.name else "Anonymous Review"
 
 

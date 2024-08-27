@@ -14,6 +14,8 @@ class DirectorSerializer(serializers.ModelSerializer):
         return value
 
 class MovieSerializer(serializers.ModelSerializer):
+    duration = serializers.DurationField()
+
     class Meta:
         model = movie
         fields = '__all__'
